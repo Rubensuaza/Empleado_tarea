@@ -31,7 +31,7 @@ class EmpleadoTest {
     @Test
     public void requerirApellidoEmpleado(){
         try{
-            Empleado empleado=new Empleado.EmpleadoBuilder().setIdEmpleado(1).setName("Ruben").build();
+            Empleado empleado=new Empleado.EmpleadoBuilder().setIdEmpleado(1).setNombre("Ruben").build();
         }catch (BusinessException ex){
             assertEquals(MensajesException.MensajesEmpleadoExceptio.CAMPO_VACIO,ex.getMessage());
         }
@@ -42,8 +42,8 @@ class EmpleadoTest {
         try{
             Empleado empleado=new Empleado.EmpleadoBuilder()
                     .setIdEmpleado(1)
-                    .setName("Ruben")
-                    .setLastName("Suaza").build();
+                    .setNombre("Ruben")
+                    .setApellido("Suaza").build();
         }catch (BusinessException ex){
             assertEquals(MensajesException.MensajesEmpleadoExceptio.CAMPO_VACIO,ex.getMessage());
         }

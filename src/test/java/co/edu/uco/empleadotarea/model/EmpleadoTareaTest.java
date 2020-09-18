@@ -5,7 +5,6 @@ import co.edu.uco.empleadotarea.model.exception.BusinessException;
 import co.edu.uco.empleadotarea.util.DateUtil;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
-import co.edu.uco.empleadotarea.model.EmpleadoTarea;
 
 import java.util.Date;
 
@@ -18,14 +17,17 @@ class EmpleadoTareaTest {
 
     private Empleado empleado=new Empleado.EmpleadoBuilder()
             .setIdEmpleado(1)
-            .setName("Ruben")
-            .setLastName("Suaza")
-            .setJob("Programador").build();
+            .setNombre("Ruben")
+            .setApellido("Suaza")
+            .setCargo("Programador")
+            .setActivo(true)
+            .build();
 
     private Tarea tarea=new Tarea.TareaBuilder()
             .setIdTarea(1)
             .setNombreTarea("Test")
             .setDescripcionTarea("Realizar pruebas")
+            .setActivo(true)
             .build();
 
 
@@ -68,7 +70,9 @@ class EmpleadoTareaTest {
             EmpleadoTarea empleadoTarea=new EmpleadoTarea.EmpleadoTareaBuilder()
                     .setIdEmpleadoTarea(1)
                     .setEmpleado(empleado)
-                    .setTarea(tarea).build();
+                    .setTarea(tarea)
+                    .setActivo(true)
+                    .build();
 
         }catch (Exception e){
             assertEquals(MensajesException.MensajeEmpleadoTareaException.FECHA_INICIO_EMPLEADO_TAREA_VACIO,e.getMessage());
@@ -122,6 +126,41 @@ class EmpleadoTareaTest {
         double valorEsperado=6;
 
         assertEquals(valorEsperado,valorReal,0);
+    }
+
+    @Test
+    public void empleadoInactivo()throws BusinessException{
+        empleado.setActivo(false);
+        Date fechaInicio = DateUtil.convertStringToDate("2020-09-14 10:00:00");
+
+        try {
+            EmpleadoTarea empleadoTarea=new EmpleadoTarea.EmpleadoTareaBuilder()
+                    .setIdEmpleadoTarea(1)
+                    .setEmpleado(empleado)
+                    .setTarea(tarea)
+                    .setFechaInicio(fechaInicio)
+                    .build();
+        }catch (Exception e){
+            assertEquals(MensajesException.MensajeEmpleadoTareaException.EMPLEADO_INACTIVO,e.getMessage());
+        }
+
+    }
+    @Test
+    public void tareaInactivo()throws BusinessException{
+        tarea.setActivo(false);
+        Date fechaInicio = DateUtil.convertStringToDate("2020-09-14 10:00:00");
+
+        try {
+            EmpleadoTarea empleadoTarea=new EmpleadoTarea.EmpleadoTareaBuilder()
+                    .setIdEmpleadoTarea(1)
+                    .setEmpleado(empleado)
+                    .setTarea(tarea)
+                    .setFechaInicio(fechaInicio)
+                    .build();
+        }catch (Exception e){
+            assertEquals(MensajesException.MensajeEmpleadoTareaException.TAREA_INACTIVO,e.getMessage());
+        }
+
     }
 
 

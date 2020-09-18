@@ -31,5 +31,8 @@ public class MensajesException {
         public static final String EMPLEADO_EMPLEADO_TAREA_VACIO="El objeto empleado no puede ser nulo";
         public static final String TAREA_EMPLEADO_TAREA_VACIO="El objeto tarea no puede ser nulo";
         public static final String FECHA_INICIO_EMPLEADO_TAREA_VACIO="la fecha de inicio de la tarea no puede estar vacia";
+        public static final String EMPLEADO_INACTIVO="El Empleado el cual quiere asignar la tarea no se encuentra activo";
+        public static final String TAREA_INACTIVO="La tarea la cual quiere asignar  no se encuentra activa";
+
     }
 }

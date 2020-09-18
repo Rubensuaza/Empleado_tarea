@@ -66,8 +66,10 @@ public class EmpleadoTarea {
             Validator.numberNull(idEmpleadoTarea, MensajesException.MensajeEmpleadoTareaException.ID_EMPLEADO_TAREA_VACIO);
             empleadoTarea.idEmpleadoTarea=this.idEmpleadoTarea;
             Validator.objectNull(empleado, MensajesException.MensajeEmpleadoTareaException.EMPLEADO_EMPLEADO_TAREA_VACIO);
+            Validator.validarEmpleadoActivo(empleado, MensajesException.MensajeEmpleadoTareaException.EMPLEADO_INACTIVO);
             empleadoTarea.empleado=this.empleado;
             Validator.objectNull(tarea, MensajesException.MensajeEmpleadoTareaException.TAREA_EMPLEADO_TAREA_VACIO);
+            Validator.validarTareaActivo(tarea, MensajesException.MensajeEmpleadoTareaException.TAREA_INACTIVO);
             empleadoTarea.tarea=this.tarea;
             Validator.dateNull(fechaInicio,MensajesException.MensajeEmpleadoTareaException.FECHA_INICIO_EMPLEADO_TAREA_VACIO);
             empleadoTarea.fechaInicio=this.fechaInicio;

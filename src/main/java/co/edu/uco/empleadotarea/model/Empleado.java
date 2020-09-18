@@ -7,10 +7,10 @@ import co.edu.uco.empleadotarea.util.Validator;
 public class Empleado {
 
     private Integer idEmpleado;
-    private String name;
-    private String lastName;
-    private String job;
-    private boolean active;
+    private String nombre;
+    private String apellido;
+    private String cargo;
+    private boolean activo;
 
     private Empleado() {
         super();
@@ -19,33 +19,33 @@ public class Empleado {
     public  static class EmpleadoBuilder{
 
         private Integer idEmpleado;
-        private String name;
-        private String lastName;
-        private String job;
-        private boolean active;
+        private String nombre;
+        private String apellido;
+        private String cargo;
+        private boolean activo;
 
         public EmpleadoBuilder setIdEmpleado(Integer idEmpleado) {
             this.idEmpleado = idEmpleado;
             return this;
         }
 
-        public EmpleadoBuilder setName(String name) {
-            this.name = name;
+        public EmpleadoBuilder setNombre(String nombre) {
+            this.nombre = nombre;
             return this;
         }
 
-        public EmpleadoBuilder setLastName(String lastName) {
-            this.lastName = lastName;
+        public EmpleadoBuilder setApellido(String apellido) {
+            this.apellido = apellido;
             return this;
         }
 
-        public EmpleadoBuilder setJob(String job) {
-            this.job = job;
+        public EmpleadoBuilder setCargo(String cargo) {
+            this.cargo = cargo;
             return this;
         }
 
-        public EmpleadoBuilder setActive(boolean active) {
-            this.active = active;
+        public EmpleadoBuilder setActivo(boolean activo) {
+            this.activo = activo;
             return this;
         }
 
@@ -53,13 +53,13 @@ public class Empleado {
             Empleado empleado=new Empleado();
             Validator.numberNull(idEmpleado, MensajesException.MensajesEmpleadoExceptio.ID_VACIO);
             empleado.idEmpleado = idEmpleado;
-            Validator.textNull(name, MensajesException.MensajesEmpleadoExceptio.CAMPO_VACIO);
-            empleado.name=name;
-            Validator.textNull(lastName, MensajesException.MensajesEmpleadoExceptio.CAMPO_VACIO);
-            empleado.lastName=lastName;
-            Validator.textNull(job, MensajesException.MensajesEmpleadoExceptio.CAMPO_VACIO);
-            empleado.job=job;
-            empleado.active=active;
+            Validator.textNull(nombre, MensajesException.MensajesEmpleadoExceptio.CAMPO_VACIO);
+            empleado.nombre = nombre;
+            Validator.textNull(apellido, MensajesException.MensajesEmpleadoExceptio.CAMPO_VACIO);
+            empleado.apellido = apellido;
+            Validator.textNull(cargo, MensajesException.MensajesEmpleadoExceptio.CAMPO_VACIO);
+            empleado.cargo = cargo;
+            empleado.activo = activo;
             return empleado;
         }
 
@@ -74,19 +74,24 @@ public class Empleado {
         return idEmpleado;
     }
 
-    public String getName() {
-        return name;
+    public String getNombre() {
+        return nombre;
     }
 
-    public String getLastName() {
-        return lastName;
+    public String getApellido() {
+        return apellido;
     }
 
-    public String getJob() {
-        return job;
+    public String getCargo() {
+        return cargo;
     }
 
-    public boolean isActive() {
-        return active;
+    public boolean isActivo() {
+        return activo;
+    }
+
+    public Empleado setActivo(boolean activo) {
+        this.activo = activo;
+        return this;
     }
 }
