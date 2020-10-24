@@ -2,7 +2,7 @@ package co.edu.uco.empleadotarea.util;
 
 import co.edu.uco.empleadotarea.model.Empleado;
 import co.edu.uco.empleadotarea.model.Tarea;
-import co.edu.uco.empleadotarea.model.exception.BusinessException;
+import co.edu.uco.empleadotarea.model.businessexception.BusinessException;
 
 import java.util.Date;
 

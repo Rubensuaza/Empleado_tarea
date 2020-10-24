@@ -1,7 +1,7 @@
 package co.edu.uco.empleadotarea.model;
 
 import co.edu.uco.empleadotarea.mensajes.MensajesException;
-import co.edu.uco.empleadotarea.model.exception.BusinessException;
+import co.edu.uco.empleadotarea.model.businessexception.BusinessException;
 import co.edu.uco.empleadotarea.util.DateUtil;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -130,13 +130,18 @@ class EmpleadoTareaTest {
 
     @Test
     public void empleadoInactivo()throws BusinessException{
-        empleado.setActivo(false);
+        Empleado empleado1=new Empleado.EmpleadoBuilder().
+                setIdEmpleado(2).
+                setNombre("Diego").
+                setApellido("Suaza").
+                setCargo("Operario").
+                setActivo(false).build();
         Date fechaInicio = DateUtil.convertStringToDate("2020-09-14 10:00:00");
 
         try {
             EmpleadoTarea empleadoTarea=new EmpleadoTarea.EmpleadoTareaBuilder()
                     .setIdEmpleadoTarea(1)
-                    .setEmpleado(empleado)
+                    .setEmpleado(empleado1)
                     .setTarea(tarea)
                     .setFechaInicio(fechaInicio)
                     .build();
@@ -147,14 +152,18 @@ class EmpleadoTareaTest {
     }
     @Test
     public void tareaInactivo()throws BusinessException{
-        tarea.setActivo(false);
+        Tarea tarea1=new Tarea.TareaBuilder().
+                setIdTarea(2).
+                setNombreTarea("cocinar").
+                setDescripcionTarea("perparar alimentos").
+                setActivo(false).build();
         Date fechaInicio = DateUtil.convertStringToDate("2020-09-14 10:00:00");
 
         try {
             EmpleadoTarea empleadoTarea=new EmpleadoTarea.EmpleadoTareaBuilder()
                     .setIdEmpleadoTarea(1)
                     .setEmpleado(empleado)
-                    .setTarea(tarea)
+                    .setTarea(tarea1)
                     .setFechaInicio(fechaInicio)
                     .build();
         }catch (Exception e){

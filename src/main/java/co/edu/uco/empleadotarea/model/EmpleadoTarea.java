@@ -1,7 +1,7 @@
 package co.edu.uco.empleadotarea.model;
 
 import co.edu.uco.empleadotarea.mensajes.MensajesException;
-import co.edu.uco.empleadotarea.model.exception.BusinessException;
+import co.edu.uco.empleadotarea.model.businessexception.BusinessException;
 import co.edu.uco.empleadotarea.util.DateUtil;
 import co.edu.uco.empleadotarea.util.Validator;
 

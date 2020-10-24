@@ -1,4 +1,4 @@
-package co.edu.uco.empleadotarea.model.exception;
+package co.edu.uco.empleadotarea.model.businessexception;
 
 public class BusinessException extends RuntimeException {
 

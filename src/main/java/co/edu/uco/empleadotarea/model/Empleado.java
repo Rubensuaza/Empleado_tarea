@@ -1,7 +1,7 @@
 package co.edu.uco.empleadotarea.model;
 
 import co.edu.uco.empleadotarea.mensajes.MensajesException;
-import co.edu.uco.empleadotarea.model.exception.BusinessException;
+import co.edu.uco.empleadotarea.model.businessexception.BusinessException;
 import co.edu.uco.empleadotarea.util.Validator;
 
 public class Empleado {
@@ -90,8 +90,5 @@ public class Empleado {
         return activo;
     }
 
-    public Empleado setActivo(boolean activo) {
-        this.activo = activo;
-        return this;
-    }
+
 }
